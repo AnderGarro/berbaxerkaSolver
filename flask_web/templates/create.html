@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Berbaxerka ebaztu {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="letters">Sartu letrak</label>
+        <input type="text" name="letters"
+               placeholder="sartu letrak denak segidan: abndmc" class="form-control"
+               value="{{ request.form['letters'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="pivot">Sartu letra komuna</label>
+        <input type="text" name="pivot"
+               placeholder="Bakarrik sartu letra bat" class="form-control"
+               value="{{ request.form['pivot'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    {% for item in words %}
+          {{ item }}
+    {% endfor %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+           {% for message in messages %}
+                <h4>{{ message }}</h4>
+           {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+</form>
+{% endblock %}

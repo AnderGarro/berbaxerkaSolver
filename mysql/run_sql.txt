@@ -1,0 +1,18 @@
+# POPULTE DATABASE
+1- Connect to container
+2- Run:
+	mysql --user="user" --database="db" --password="password" < ehme.sql
+
+
+# SQL TO FIND WORDS OF BEBAXERKA
+SELECT 
+	hitza 
+FROM 
+	2_hitzak 
+WHERE 
+	hitza RLIKE '^([d,a,l,m,t,o,u])+$' AND
+	hitza LIKE "%t%";
+
+SELECT lema FROM hitzak 
+WHERE lema RLIKE '^([d,a,l,m,t,o,u])+$' AND
+	lema LIKE "%t%";
